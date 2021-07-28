@@ -17,41 +17,36 @@ class ColorViewModel {
     var completionThree: (() -> ())?
 
     func buttonTapped() {
+        
         choisClosureOnState()
     }
     
      func choisClosureOnState() {
+        
         if state == 1 {
             self.completionOne?()
+            return
         }
         if state == 2 {
             self.completionTwo!()
+            return
         }
         if state == 3 {
             self.completionThree!()
+            return
         }
      }
 
-    func changeState() -> Int {
+    func changeState() {
         
-        if state == 1 {
-        state = 2
-            return state
+        state += 1
+        if state > 3 {
+            state = 1
         }
-        
-        if state == 2 {
-            state = 3
-            return state
-        }
-        
-        if state == 3 {
-        state = 1
-            return state
-        }
-        return state
     }
 
     func startTimer() {
+        
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
             self?.changeState()
         }

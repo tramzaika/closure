@@ -10,7 +10,6 @@ import UIKit
 class ColorViewController: UIViewController {
     
     let viewModel = ColorViewModel()
-  //  let timer = Timer()
     
     @IBOutlet weak var pleaseTapButton: UIButton!
     
